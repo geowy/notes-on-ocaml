@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang=en>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>Running OCaml</title>
+<link rel=stylesheet href=main.css>
+
+<p><a href=index.html>Go back to the index</a>
+
+<hr>
+
+<p><img src=baby-goat-in-margarita-island-venezuela.jpeg alt="">
+
+<h1>How to run OCaml code</h1>
+
+<p>OCaml is very flexible. There are 4 ways to run OCaml:
+
+<ol>
+<li>Read-evaluate-print loop (REPL)
+<li>Run as a script
+<li>Compile to bytecode
+<li>Compile to native code
+</ol>
+
+<p>This is a really great feature. It should be standard for all programming languages. I'll walk you through each of them on this page.
+
+<h1>Read-evaluate-print loop</h1>
+
+<p>The REPL is OCaml's interactive mode. If you've used a scripting language you know how useful a REPL is. Most compiled languages don't include a REPL, which makes OCaml fairly unique.
+
+<p>To start the REPL open a terminal and enter <code>ocaml</code>. You will see something like this:
+
+<pre>
+$ ocaml
+        OCaml version 4.08.1
+
+#
+</pre>
+
+<p>To run some code, enter the code followed by <code>;;</code>. For example:
+
+<pre>
+$ ocaml
+        OCaml version 4.08.1
+
+# 1 + 1;;
+- : int = 2
+</pre>
+
+<p>Here the REPL tells us the statement <code>1 + 1</code> returns an integer with a value of 2.
+
+<p>In the OCaml REPL you always need to follow statements with <code>;;</code>. This seems kind of inelegant compared to Ruby or Python, and I'm not sure why it's needed. It's easy to get used to though.
+
+<h1>Warning! The default REPL sucks!</h1>
+
+<p>If you've followed along with the examples above, you've probably already realised this. OCaml's REPL even lacks basic features like backspace. Make sure you install <a href=https://erratique.ch/software/down>Down</a>. There is also <a href=https://github.com/ocaml-community/utop>utop</a> for ADHD zoomers.
+
+<h1>Running as a script</h1>
+
+<p>Let's create a script and run it. On your terminal create the script:
+
+<pre>
+$ echo 'print_string "Hello World\n"' &gt; hello.ml
+</pre>
+
+<p>Then run it:
+
+<pre>
+$ ocaml hello.ml
+Hello World
+</pre>
+
+<h1>Compiling to bytecode or native code</h1>
+
+<p>We can compile and run the script above like this:
+
+<pre>
+$ ocamlopt -o hello hello.ml
+$ ./hello
+Hello World
+</pre>
+
+<p>The above is native code. To compile to bytecode instead, use <code>ocamlc</code> instead of <code>ocamlopt</code>.
+
+<pre>
+$ ocamlc -o hello hello.ml
+$ ./hello
+Hello World
+</pre>
+
+<p>Note that if you chuck the bytecode on a floppy disk and give it to your friend, it won't run on their computer <em>unless they also have OCaml installed</em>. Native code does not have this problem.
+
+<h1>Which one should I use?</h1>
+
+<p>You should probably run your code as a script when developing, and compile to native code when deploying. This gives you the workflow benefits of a scripting language combined with the efficiency and ease of deployment of a compiled language.
+
+<p>You probably won't need bytecode. It seems there are not much benefits to bytecode, except that it runs on some obscure platforms that native code doesn't.
+
+<table class=bordered>
+<thead>
+<tr>
+<th>&nbsp;
+<th>Script
+<th>Bytecode
+<th>Native code
+
+<tr>
+<th>File size
+<td style="background-color: mediumseagreen">Smaller
+<td style="background-color: orange">Bigger
+<td style="background-color: tomato">Biggest
+
+<tr>
+<th>Compile speed
+<td style="background-color: mediumseagreen">None
+<td style="background-color: orange">Faster
+<td style="background-color: tomato">Slower
+
+<tr>
+<th>Run speed
+<td style="background-color: tomato">Slower
+<td style="background-color: orange">Faster
+<td style="background-color: mediumseagreen">Fastest
+
+<tr>
+<th>Needs OCaml to run?
+<td style="background-color: tomato">Yes
+<td style="background-color: tomato">Yes
+<td style="background-color: mediumseagreen">No
+</table>
+
+<h1>More information</h1>
+
+<ul>
+<li><a href=https://ocaml.org/releases/4.10/htmlman/comp.html>OCaml Manual Chapter 10</a>
+<li><a href=https://ocaml.org/releases/4.10/htmlman/toplevel.html>OCaml Manual Chapter 11</a>
+<li><a href=https://ocaml.org/releases/4.10/htmlman/native.html>OCaml Manual Chapter 12</a>
+</ul>
+
+<hr>
+
+<p><a href=index.html>Go back to the index</a>

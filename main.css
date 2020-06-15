@@ -1,0 +1,61 @@
+@import "normalize.css";
+
+a:active {
+  color: tomato;
+}
+
+a:hover {
+  color: violet;
+  text-decoration: underline;
+}
+
+a:link {
+  color: dodgerblue;
+  text-decoration: none;
+}
+
+a:visited {
+  color: slateblue;
+}
+
+body {
+  background-color: lightgray;
+  max-width: 40em;
+  margin: auto;
+  padding: 1em;
+}
+
+code, pre {
+  background-color: white;
+  border-radius: 0.25em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: dodgerblue;
+}
+
+hr {
+  background-color: black;
+  border: 0 none;
+  height: 1px;
+}
+
+img {
+  max-width: 100%;
+}
+
+pre {
+  border: 1px solid black;
+  margin: 1em;
+  padding: 0.25em
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+table.bordered td {
+  background-color: white;
+  border: 1px solid black;
+}
